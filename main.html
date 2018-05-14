@@ -1,15 +1,36 @@
 <!DOCTYPE html>
-<head>
-  <title>Mathemancer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    h1 { color:#631e40; }
-    body { background-color:#9da3a9; }
-  </style>
-</head>
-<body>
-  <div style="text-align: center">
-    <h1>Mathemancer</h1>
+<html>
+  <head>
+    <title>Mathemancer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      h1 { color:#631e40; }
+      body { background-color:#9da3a9; }
+      canvas {
+        border: 1px solid #0c1a28;
+        background-colour: #f1f1f1;
+      }
+    </style>
+  </head>
+  <body onload="startGame()">
+    <div style="text-align: center">
+      <h1>Mathemancer</h1>
+    </div>
     
-  </div>
-</body>
+    <script>
+      function startGame() {
+        myGameArea.start();
+      }
+      
+      var myGameArea = {
+        canvas : document.createElement("canvas"),
+        start : function() {
+          this.canvas.width = 800;
+          this.canvas.height = 600;
+          this.context = this.canvas.getContext("2d");
+          document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        }
+      }
+    </script>
+  </body>
+</html>
