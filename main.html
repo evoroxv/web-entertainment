@@ -7,6 +7,9 @@
       h1 { color:#631e40; }
       body { background-color:#9da3a9; }
       canvas {
+        padding: 0;
+        margin: auto;
+        display: block;
         border: 1px solid #0c1a28;
         background-colour: #f1f1f1;
       }
@@ -15,13 +18,15 @@
   <body onload="startGame()">
     <div style="text-align: center">
       <h1>Mathemancer</h1>
+      <button type="button">Magic Missile!</button>
+      <button type="button">Fireball!</button>
     </div>
-    
+
     <script>
       function startGame() {
         myGameArea.start();
       }
-      
+
       var myGameArea = {
         canvas : document.createElement("canvas"),
         start : function() {
@@ -30,6 +35,9 @@
           this.context = this.canvas.getContext("2d");
           document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         }
+      }
+      function castSpell() {
+        
       }
     </script>
   </body>
