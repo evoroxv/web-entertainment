@@ -18,27 +18,9 @@
   <body onload="startGame()">
     <div style="text-align: center">
       <h1>Mathemancer</h1>
-      <button type="button">Magic Missile!</button>
       <button type="button">Fireball!</button>
+      <button type="button">Magic Missiles!</button>
     </div>
-
-    <script>
-      function startGame() {
-        myGameArea.start();
-      }
-
-      var myGameArea = {
-        canvas : document.createElement("canvas"),
-        start : function() {
-          this.canvas.width = 800;
-          this.canvas.height = 600;
-          this.context = this.canvas.getContext("2d");
-          document.body.insertBefore(this.canvas, document.body.childNodes[0]);
-        }
-      }
-      function castSpell() {
-
-      }
-    </script>
+    <script src="mathemancerGame.js"></script>
   </body>
 </html>
