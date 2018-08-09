@@ -1,3 +1,18 @@
+var experience = 0
+var monsters_slain = 0
+var level = 1
+var levelLimit = {
+  (level**2)*10;
+}
+
+var health = {
+  level*5;
+}
+
+function levelUp() {
+  level = (level+1);
+}
+
 function startGame() {
   myGameArea.start();
   }
@@ -13,4 +28,11 @@ var myGameArea = {
 }
 function castSpell() {
 
+}
+
+function gainXP() {
+  experience = (experience + monsterXp)
+  if (experience >= levelLimit) {
+    levelUp();
+  }
 }
