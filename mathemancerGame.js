@@ -10,18 +10,20 @@ var myGameArea = {
     document.body.insertBefore(this.canvas, document.body.childNodes[0]);
   }
 }
-var toHit = Math.floor(Math.random() * 100) + 1;
+var spells["","","","",""]
+var toHit = function roll(1, 100) {
+  return Math.floor(Math.random() * (max - min + 1) + min;
+}
 var experience = 0;
 var monsters_slain = 0;
 var level = 1;
-var levelLimit = {
-  (level**2)*10;
-}
+var levelLimit = 10;
 var health = {
   level*5;
 }
 function levelUp() {
   level = (level+1);
+  levelLimit = ((level**2)*10);
 }
 function gainXP() {
   experience = (experience + monsterXp)
@@ -42,7 +44,7 @@ var goblin = {
       health = (health - goblin.damage)
     }
     else {
-      
+
     }
   }
 }
