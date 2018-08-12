@@ -2,16 +2,15 @@ var experience = 0;
 var monsters_slain = 0;
 var level = 1;
 var levelLimit = 10;
-var currentHealth = 5;
 var health = level * 5;
-var hpLength = currentHealth * 20;
-var hpMaxLength = health * 20;
+var currentHealth = health;
+var hpLength = 150 * (currentHealth / health);
 
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 ctx.fillStyle = "#cc0000";
 ctx.fillRect(50,50,hpLength,25);
-ctx.strokeRect(50,50,hpMaxLength,25);
+ctx.strokeRect(50,50,150,25);
 
 ctx.textAlign = "right"
 ctx.fillStyle = "#ffffff"
@@ -19,13 +18,13 @@ ctx.font="20px Verdana"
 ctx.fillText("HP: " + health,100,100)
 
 ctx.fillStyle = "#cc0000";
-ctx.fillRect(600,525,150,25);
+ctx.fillRect(600,525,hpLength,25);
 ctx.strokeRect(600,525,150,25);
 
 ctx.textAlign = "left"
 ctx.fillStyle = "#ffffff"
 ctx.font="20px Verdana"
-ctx.fillText("HP: " + health,650,575)
+ctx.fillText("HP: " + currentHealth,650,575)
 
 //magic
 var spells = ["Fire","Ice","Stone","Arcane","Lightning"];
@@ -77,7 +76,7 @@ function gainXP() {
   }
 }
 function monsterKilled() {
-  monsters_slain = (monsters_slain + 1)
+  monsters_slain += 1
   gainXP()
 }
 
@@ -85,7 +84,7 @@ function monsterKilled() {
 class creature {
   constructor() {
     this.id = 0;
-    this.name = "";
+    this.name = "creature";
     this.image = none;
     this.health = 1;
     this.attack = 50;
@@ -94,13 +93,13 @@ class creature {
   }
   dealDamage(x) {
     if (toHit <= creature.attack) {
-      x = (x - creature.damage);
+      currentHealth-=creature.damage;
 //    else
     }
   }
-//  class monster extends creature {
-//
-//  }
+  class monster extends creature {
+    super
+  }
 }
 
 //constructor player() {
