@@ -29,7 +29,7 @@ ctx.fillText("HP: " + currentHealth,650,575)
 //magic
 var spells = ["Fire","Ice","Stone","Arcane","Lightning"];
 class spellComponents {
-  constructor(spellId) {
+  constructor(spellId, spellName, opSymbol, spellTag) {
     this.spellId = 0;
     this.spellName = "";
     this.opSymbol = "";
@@ -38,6 +38,11 @@ class spellComponents {
   }
   doOperation(spellNum1, opSymbol, spellNum2) {
     return spellNum1 + opSymbol + spellNum2;
+  }
+  class Fire extends spellComponents {
+    constructor() {
+      super()
+    }
   }
 }
 
@@ -65,24 +70,12 @@ function randInt(max, min) {
 
 //score / leveling
 
-function levelUp() {
-  level = (level+1);
-  levelLimit = ((level**2)*10);
-}
-function gainXP() {
-  experience = (experience + monsterXp)
-  if (experience >= levelLimit) {
-    levelUp();
-  }
-}
-function monsterKilled() {
-  monsters_slain += 1
-  gainXP()
-}
+
+
 
 //monster classes
 class creature {
-  constructor() {
+  constructor(id, name, image, health, attack, damage) {
     this.id = 0;
     this.name = "creature";
     this.image = none;
@@ -97,8 +90,24 @@ class creature {
 //    else
     }
   }
+  function levelUp() {
+    level += 1;
+    levelLimit = ((level**2)*10);
+  }
+  function gainXP() {
+    experience += monsterXp;
+    if (experience >= levelLimit) {
+      levelUp();
+    }
+  }
+  function monsterKilled() {
+    monsters_slain += 1
+    gainXP()
+  }
   class monster extends creature {
-    super
+    constructor() {
+        super()
+    }
   }
 }
 
